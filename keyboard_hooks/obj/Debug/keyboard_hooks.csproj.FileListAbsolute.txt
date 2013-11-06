@@ -1,0 +1,10 @@
+C:\Users\Tatu\documents\visual studio 2012\Projects\keyboard_hooks\keyboard_hooks\bin\Debug\keyboard_hooks.exe.config
+C:\Users\Tatu\documents\visual studio 2012\Projects\keyboard_hooks\keyboard_hooks\bin\Debug\keyboard_hooks.exe
+C:\Users\Tatu\documents\visual studio 2012\Projects\keyboard_hooks\keyboard_hooks\bin\Debug\keyboard_hooks.pdb
+C:\Users\Tatu\documents\visual studio 2012\Projects\keyboard_hooks\keyboard_hooks\obj\Debug\keyboard_hooks.csprojResolveAssemblyReference.cache
+C:\Users\Tatu\documents\visual studio 2012\Projects\keyboard_hooks\keyboard_hooks\obj\Debug\keyboard_hooks.About.resources
+C:\Users\Tatu\documents\visual studio 2012\Projects\keyboard_hooks\keyboard_hooks\obj\Debug\keyboard_hooks.Form1.resources
+C:\Users\Tatu\documents\visual studio 2012\Projects\keyboard_hooks\keyboard_hooks\obj\Debug\keyboard_hooks.Properties.Resources.resources
+C:\Users\Tatu\documents\visual studio 2012\Projects\keyboard_hooks\keyboard_hooks\obj\Debug\keyboard_hooks.csproj.GenerateResource.Cache
+C:\Users\Tatu\documents\visual studio 2012\Projects\keyboard_hooks\keyboard_hooks\obj\Debug\keyboard_hooks.exe
+C:\Users\Tatu\documents\visual studio 2012\Projects\keyboard_hooks\keyboard_hooks\obj\Debug\keyboard_hooks.pdb
