@@ -1,0 +1,9 @@
+C:\Users\Tatu\documents\visual studio 2012\Projects\keyboard_hooks\TCP_Server_kh\bin\Debug\TCP_Server_kh.exe.config
+C:\Users\Tatu\documents\visual studio 2012\Projects\keyboard_hooks\TCP_Server_kh\bin\Debug\TCP_Server_kh.exe
+C:\Users\Tatu\documents\visual studio 2012\Projects\keyboard_hooks\TCP_Server_kh\bin\Debug\TCP_Server_kh.pdb
+C:\Users\Tatu\documents\visual studio 2012\Projects\keyboard_hooks\TCP_Server_kh\obj\Debug\TCP_Server_kh.csprojResolveAssemblyReference.cache
+C:\Users\Tatu\documents\visual studio 2012\Projects\keyboard_hooks\TCP_Server_kh\obj\Debug\TCP_Server_kh.ServerForm.resources
+C:\Users\Tatu\documents\visual studio 2012\Projects\keyboard_hooks\TCP_Server_kh\obj\Debug\TCP_Server_kh.Properties.Resources.resources
+C:\Users\Tatu\documents\visual studio 2012\Projects\keyboard_hooks\TCP_Server_kh\obj\Debug\TCP_Server_kh.csproj.GenerateResource.Cache
+C:\Users\Tatu\documents\visual studio 2012\Projects\keyboard_hooks\TCP_Server_kh\obj\Debug\TCP_Server_kh.exe
+C:\Users\Tatu\documents\visual studio 2012\Projects\keyboard_hooks\TCP_Server_kh\obj\Debug\TCP_Server_kh.pdb

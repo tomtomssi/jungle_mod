@@ -21,14 +21,18 @@ namespace keyboard_hooks
         #region Initialize
         Color defaultTransparencyKey;
         Thread t = null;
+        Thread sendData = null;
+        //Arvolla katsotaan onko borderit formissa näkyvissä vai ei. Käytetään myös, kun liikutetaan hiirellä borderless formia
         bool isVisible = true;
-        string wav_loc = @"C:\Users\Tatu\Documents\Visual Studio 2012\Projects\keyboard_hooks\resoures\wav\";
+        Point lastFormLocation;
+        //string wav_loc = @"C:\Users\Tatu\Documents\Visual Studio 2012\Projects\keyboard_hooks\resoures\wav\";
         System.Media.SoundPlayer player = new System.Media.SoundPlayer();
         private System.Windows.Forms.Timer ob, tb, or, tr, drakeTimer, baronTimer = null;
         int obLizardMinutes, obLizardSeconds, orLizardMinutes, orLizardSeconds;
         int tbLizardMinutes, tbLizardSeconds, trLizardMinutes, trLizardSeconds;
         int drakeMinutes, drakeSeconds;
         int baronMinutes, baronSeconds;
+        string IP = null;
         #endregion
 
         public Form1()
@@ -230,7 +234,7 @@ namespace keyboard_hooks
             changeColor(obLizardMinutes, obLizardSeconds, ourBlueT);
             if (obLizardMinutes == 0 && obLizardSeconds == 0)
             {
-                playSound(wav_loc + "ob.wav");
+                //playSound(wav_loc + "ob.wav");
                 ob.Stop();
                 //Poistetaan event handler, jotta timerin mennessä 0, se ei luo vanhan vierelle toista
                 ob.Tick -= new EventHandler(ObfiveMinTick);
@@ -260,7 +264,7 @@ namespace keyboard_hooks
             changeColor(orLizardMinutes, orLizardSeconds, OurRedT);
             if (orLizardMinutes == 0 && orLizardSeconds == 0)
             {
-                playSound(wav_loc + "or.wav");
+                //playSound(wav_loc + "or.wav");
                 or.Stop();
                 or.Tick -= new EventHandler(OrfiveMinTick);
                 return;
@@ -289,7 +293,7 @@ namespace keyboard_hooks
             changeColor(trLizardMinutes, trLizardSeconds, TheirRedT);
             if (trLizardMinutes == 0 && trLizardSeconds == 0)
             {
-                playSound(wav_loc + "tr.wav");
+                //playSound(wav_loc + "tr.wav");
                 tr.Stop();
                 tr.Tick -= new EventHandler(TrfiveMinTick);
                 return;
@@ -318,7 +322,7 @@ namespace keyboard_hooks
             changeColor(tbLizardMinutes, tbLizardSeconds, TheirBlueT);
             if (tbLizardMinutes == 0 && tbLizardSeconds == 0)
             {
-                playSound(wav_loc + "tb.wav");
+               // playSound(wav_loc + "tb.wav");
                 tb.Stop();
                 tb.Tick -= new EventHandler(TbfiveMinTick);
                 return;
@@ -459,11 +463,11 @@ namespace keyboard_hooks
         }
 
         //Soittaa äänitiedoston, kun jokin timereistä on 0
-        private void playSound(string loc)
+        /*private void playSound(string loc)
         {
             player.SoundLocation = loc;
             player.Play();
-        }
+        }*/
 
         #region start About Form
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -484,6 +488,60 @@ namespace keyboard_hooks
                 t.Abort();
             }
             Application.Exit();
+        }
+
+        //Mouse eventit formin liikuttamiseen
+        #region Mouse Movements
+        private void Form1_MouseDown(object sender, MouseEventArgs e)
+        {
+            lastFormLocation = e.Location;
+        }
+        private void Form1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                this.Left += e.X - lastFormLocation.X;
+                this.Top += e.Y - lastFormLocation.Y; 
+            }
+        }
+        #endregion
+
+        private void serverIPToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowMyDialogBox();
+        }
+
+        public void ShowMyDialogBox()
+        {
+            EnterServerIP testDialog = new EnterServerIP();
+
+            // Show testDialog as a modal dialog and determine if DialogResult = OK.
+            if (testDialog.ShowDialog(this) == DialogResult.OK)
+            {
+                // Read the contents of testDialog's TextBox.
+                menuIPbox.Text = testDialog.getIP();
+                this.IP = testDialog.getIP();
+            }
+
+            else
+            {
+                menuIPbox.Text = "No IP set";
+            }
+            testDialog.Dispose();
+        }
+
+        private void connectToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (IP != null)
+            {
+                sendData = new Thread(new ThreadStart(sendDataProc));
+                sendData.Start();
+            }
+        }
+
+        private void sendDataProc()
+        {
+            ClientTCP conn = new ClientTCP(IP);
         }
     }
 }

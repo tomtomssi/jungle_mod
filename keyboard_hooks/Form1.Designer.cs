@@ -45,11 +45,17 @@
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.connectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.serverIPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuIPbox = new System.Windows.Forms.ToolStripTextBox();
+            this.connectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.BaronT = new System.Windows.Forms.Label();
             this.DrakeT = new System.Windows.Forms.Label();
             this.asd = new System.Windows.Forms.Label();
             this.darkeabel = new System.Windows.Forms.Label();
             this.isRunning = new System.Windows.Forms.Label();
+            this.connectionLabel = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -169,7 +175,9 @@
             // 
             this.menuStrip1.BackColor = System.Drawing.Color.Gray;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem});
+            this.fileToolStripMenuItem,
+            this.toolStripMenuItem1,
+            this.connectionToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(284, 24);
@@ -198,6 +206,46 @@
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.exitToolStripMenuItem.Text = "Exit...";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(12, 20);
+            // 
+            // connectionToolStripMenuItem
+            // 
+            this.connectionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.serverIPToolStripMenuItem,
+            this.connectToolStripMenuItem});
+            this.connectionToolStripMenuItem.Name = "connectionToolStripMenuItem";
+            this.connectionToolStripMenuItem.Size = new System.Drawing.Size(81, 20);
+            this.connectionToolStripMenuItem.Text = "Connection";
+            // 
+            // serverIPToolStripMenuItem
+            // 
+            this.serverIPToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuIPbox});
+            this.serverIPToolStripMenuItem.Name = "serverIPToolStripMenuItem";
+            this.serverIPToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.serverIPToolStripMenuItem.Text = "Server IP...";
+            this.serverIPToolStripMenuItem.Click += new System.EventHandler(this.serverIPToolStripMenuItem_Click);
+            // 
+            // menuIPbox
+            // 
+            this.menuIPbox.Font = new System.Drawing.Font("Source Sans Pro", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menuIPbox.HideSelection = false;
+            this.menuIPbox.Name = "menuIPbox";
+            this.menuIPbox.ReadOnly = true;
+            this.menuIPbox.ShortcutsEnabled = false;
+            this.menuIPbox.Size = new System.Drawing.Size(100, 23);
+            this.menuIPbox.Text = "No IP set";
+            // 
+            // connectToolStripMenuItem
+            // 
+            this.connectToolStripMenuItem.Name = "connectToolStripMenuItem";
+            this.connectToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.connectToolStripMenuItem.Text = "Connect...";
+            this.connectToolStripMenuItem.Click += new System.EventHandler(this.connectToolStripMenuItem_Click);
             // 
             // BaronT
             // 
@@ -251,12 +299,22 @@
             this.isRunning.TabIndex = 20;
             this.isRunning.Text = "Stopped...";
             // 
+            // connectionLabel
+            // 
+            this.connectionLabel.AutoSize = true;
+            this.connectionLabel.Location = new System.Drawing.Point(107, 31);
+            this.connectionLabel.Name = "connectionLabel";
+            this.connectionLabel.Size = new System.Drawing.Size(73, 13);
+            this.connectionLabel.TabIndex = 21;
+            this.connectionLabel.Text = "Disconnected";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(284, 368);
+            this.Controls.Add(this.connectionLabel);
             this.Controls.Add(this.isRunning);
             this.Controls.Add(this.BaronT);
             this.Controls.Add(this.DrakeT);
@@ -281,6 +339,8 @@
             this.Text = "Objective Timers";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -311,6 +371,12 @@
         private System.Windows.Forms.Label asd;
         private System.Windows.Forms.Label darkeabel;
         private System.Windows.Forms.Label isRunning;
+        private System.Windows.Forms.Label connectionLabel;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem connectionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem serverIPToolStripMenuItem;
+        private System.Windows.Forms.ToolStripTextBox menuIPbox;
+        private System.Windows.Forms.ToolStripMenuItem connectToolStripMenuItem;
     }
 }
 

@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8F1949C0-8F0C-405A-9329-83421FEC1451}</ProjectGuid>
+    <ProjectGuid>{CA2DF637-1D5C-4065-96DE-597E8FB3CFC3}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>keyboard_hooks</RootNamespace>
-    <AssemblyName>keyboard_hooks</AssemblyName>
+    <RootNamespace>TCP_Server_kh</RootNamespace>
+    <AssemblyName>TCP_Server_kh</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -31,13 +31,6 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <ApplicationIcon>exe_icox.ico</ApplicationIcon>
-  </PropertyGroup>
-  <PropertyGroup>
-    <Win32Resource>
-    </Win32Resource>
-  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -51,36 +44,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="About.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="About.Designer.cs">
-      <DependentUpon>About.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ClientTCP.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="EnterServerIP.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="EnterServerIP.Designer.cs">
-      <DependentUpon>EnterServerIP.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GlobalKeyBoardHook.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="About.resx">
-      <DependentUpon>About.cs</DependentUpon>
-    </EmbeddedResource>
+    <Compile Include="ServerConnection.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="EnterServerIP.resx">
-      <DependentUpon>EnterServerIP.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -90,7 +64,6 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -104,38 +77,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\tb.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\baron_mod.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\drake_mod.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\ob.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\or.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\tr.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\about.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\lolicon.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\form_icon.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="exe_ico.ico" />
-    <Content Include="exe_icox.ico" />
-    <None Include="Resources\exe_icox.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
