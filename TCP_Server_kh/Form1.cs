@@ -15,12 +15,14 @@ namespace TCP_Server_kh
     {
         Thread t = null;
         bool isServerRunning = false;
+        Label[] timerLabels;
 
         ServerConnection srv = null;
 
         public ServerForm()
         {
             InitializeComponent();
+            timerLabels = new Label[6]{ourBlueT, OurRedT, TheirBlueT, TheirRedT, DrakeT, BaronT};
         }
 
         private void connectButton_Click(object sender, EventArgs e)
@@ -30,9 +32,11 @@ namespace TCP_Server_kh
             t.Start();
         }
 
+        //Loops the TCP connection thread while the server is open
         private void TCPProcedure()
         {
-            srv = new ServerConnection(connectionLabel);
+            srv = new ServerConnection(connectionLabel, timerLabels);
+
             while (isServerRunning)
             {
                 srv.openConnection();

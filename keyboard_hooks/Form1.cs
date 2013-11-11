@@ -61,66 +61,78 @@ namespace keyboard_hooks
             }
         }
 
-        #region hook methods
+        #region On KeyDown Methods
         public void gHook_KeyDown(object sender, KeyEventArgs e)
         {
             //Num7
             if (e.KeyValue == 36 && or.Enabled == false)
             {
+                sendTimerToServer(1);
                 ourRed();
             }
             else if (e.KeyValue == 36 && or.Enabled == true)
             {
+                sendTimerToServer(1);
                 orLizardMinutes = 5;
                 orLizardSeconds = 0;
             }
             //Num8
             if (e.KeyValue == 38 && ob.Enabled == false)
             {
+                sendTimerToServer(2);
                 ourBlue();
             }
             else if (e.KeyValue == 38 && ob.Enabled == true)
             {
+                sendTimerToServer(2);
                 obLizardMinutes = 5;
                 obLizardSeconds = 0;
             }
             //Num4
             if (e.KeyValue == 37 && tr.Enabled == false)
             {
+                sendTimerToServer(3);
                 theirRed();
             }
             else if (e.KeyValue == 37 && tr.Enabled == true)
             {
+                sendTimerToServer(3);
                 trLizardMinutes = 5;
                 trLizardSeconds = 0;
             }
             //Num5
             if (e.KeyValue == 12 && tb.Enabled == false)
             {
+                sendTimerToServer(4);
                 theirBlue();
             }
             else if (e.KeyValue == 12 && tb.Enabled == true)
             {
+                sendTimerToServer(4);
                 tbLizardMinutes = 5;
                 tbLizardSeconds = 0;
             }
             //Num6
             if (e.KeyValue == 40 && baronTimer.Enabled == false)
             {
+                sendTimerToServer(6);
                 baron();
             }
             else if (e.KeyValue == 40 && baronTimer.Enabled == true)
             {
+                sendTimerToServer(6);
                 baronMinutes = 7;
                 baronSeconds = 0;
             }
             //Num9
             if (e.KeyValue == 35 && drakeTimer.Enabled == false)
             {
+                sendTimerToServer(5);
                 drake();
             }
             else if (e.KeyValue == 35 && drakeTimer.Enabled == true)
             {
+                sendTimerToServer(5);
                 drakeSeconds = 0;
                 drakeMinutes = 6;
             }
@@ -534,14 +546,24 @@ namespace keyboard_hooks
         {
             if (IP != null)
             {
-                sendData = new Thread(new ThreadStart(sendDataProc));
+                sendData = new Thread(new ParameterizedThreadStart(sendDataProc));
                 sendData.Start();
             }
         }
 
-        private void sendDataProc()
+        private void sendDataProc(object keyId)
         {
             ClientTCP conn = new ClientTCP(IP);
+            conn.sendData((int)keyId);
+        }
+
+        private void sendTimerToServer(int id)
+        {
+            if (IP != null)
+            {
+                sendData = new Thread(new ParameterizedThreadStart(sendDataProc));
+                sendData.Start(id);
+            }
         }
     }
 }

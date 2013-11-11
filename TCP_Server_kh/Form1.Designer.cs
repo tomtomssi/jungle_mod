@@ -30,10 +30,22 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.closeConnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.IPbox = new System.Windows.Forms.Label();
             this.connectButton = new System.Windows.Forms.Button();
             this.connectionLabel = new System.Windows.Forms.Label();
-            this.closeConnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.asd = new System.Windows.Forms.Label();
+            this.darkeabel = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.tbLabel = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.obLabel = new System.Windows.Forms.Label();
+            this.BaronT = new System.Windows.Forms.Label();
+            this.DrakeT = new System.Windows.Forms.Label();
+            this.TheirRedT = new System.Windows.Forms.Label();
+            this.TheirBlueT = new System.Windows.Forms.Label();
+            this.OurRedT = new System.Windows.Forms.Label();
+            this.ourBlueT = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,6 +66,13 @@
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
+            // 
+            // closeConnToolStripMenuItem
+            // 
+            this.closeConnToolStripMenuItem.Name = "closeConnToolStripMenuItem";
+            this.closeConnToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.closeConnToolStripMenuItem.Text = "Close conn";
+            this.closeConnToolStripMenuItem.Click += new System.EventHandler(this.closeConnToolStripMenuItem_Click);
             // 
             // IPbox
             // 
@@ -83,12 +102,131 @@
             this.connectionLabel.TabIndex = 3;
             this.connectionLabel.Text = "Disconnected";
             // 
-            // closeConnToolStripMenuItem
+            // asd
             // 
-            this.closeConnToolStripMenuItem.Name = "closeConnToolStripMenuItem";
-            this.closeConnToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.closeConnToolStripMenuItem.Text = "Close conn";
-            this.closeConnToolStripMenuItem.Click += new System.EventHandler(this.closeConnToolStripMenuItem_Click);
+            this.asd.AutoSize = true;
+            this.asd.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.asd.ForeColor = System.Drawing.Color.DarkMagenta;
+            this.asd.Location = new System.Drawing.Point(31, 266);
+            this.asd.Name = "asd";
+            this.asd.Size = new System.Drawing.Size(68, 18);
+            this.asd.TabIndex = 23;
+            this.asd.Text = "Baron:";
+            // 
+            // darkeabel
+            // 
+            this.darkeabel.AutoSize = true;
+            this.darkeabel.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.darkeabel.ForeColor = System.Drawing.Color.LightSalmon;
+            this.darkeabel.Location = new System.Drawing.Point(32, 228);
+            this.darkeabel.Name = "darkeabel";
+            this.darkeabel.Size = new System.Drawing.Size(68, 18);
+            this.darkeabel.TabIndex = 22;
+            this.darkeabel.Text = "Drake:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Red;
+            this.label5.Location = new System.Drawing.Point(32, 189);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(108, 18);
+            this.label5.TabIndex = 21;
+            this.label5.Text = "Their Red:";
+            // 
+            // tbLabel
+            // 
+            this.tbLabel.AutoSize = true;
+            this.tbLabel.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbLabel.ForeColor = System.Drawing.Color.Cyan;
+            this.tbLabel.Location = new System.Drawing.Point(32, 147);
+            this.tbLabel.Name = "tbLabel";
+            this.tbLabel.Size = new System.Drawing.Size(118, 18);
+            this.tbLabel.TabIndex = 20;
+            this.tbLabel.Text = "Their Blue:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Red;
+            this.label3.Location = new System.Drawing.Point(31, 111);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(88, 18);
+            this.label3.TabIndex = 19;
+            this.label3.Text = "Our Red:";
+            // 
+            // obLabel
+            // 
+            this.obLabel.AutoSize = true;
+            this.obLabel.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.obLabel.ForeColor = System.Drawing.Color.Cyan;
+            this.obLabel.Location = new System.Drawing.Point(31, 72);
+            this.obLabel.Name = "obLabel";
+            this.obLabel.Size = new System.Drawing.Size(98, 18);
+            this.obLabel.TabIndex = 18;
+            this.obLabel.Text = "Our Blue:";
+            // 
+            // BaronT
+            // 
+            this.BaronT.AutoSize = true;
+            this.BaronT.Font = new System.Drawing.Font("Impact", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BaronT.ForeColor = System.Drawing.Color.Lime;
+            this.BaronT.Location = new System.Drawing.Point(185, 262);
+            this.BaronT.Name = "BaronT";
+            this.BaronT.Size = new System.Drawing.Size(0, 20);
+            this.BaronT.TabIndex = 29;
+            // 
+            // DrakeT
+            // 
+            this.DrakeT.AutoSize = true;
+            this.DrakeT.Font = new System.Drawing.Font("Impact", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DrakeT.ForeColor = System.Drawing.Color.Lime;
+            this.DrakeT.Location = new System.Drawing.Point(185, 224);
+            this.DrakeT.Name = "DrakeT";
+            this.DrakeT.Size = new System.Drawing.Size(0, 20);
+            this.DrakeT.TabIndex = 28;
+            // 
+            // TheirRedT
+            // 
+            this.TheirRedT.AutoSize = true;
+            this.TheirRedT.Font = new System.Drawing.Font("Impact", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TheirRedT.ForeColor = System.Drawing.Color.Lime;
+            this.TheirRedT.Location = new System.Drawing.Point(185, 185);
+            this.TheirRedT.Name = "TheirRedT";
+            this.TheirRedT.Size = new System.Drawing.Size(0, 20);
+            this.TheirRedT.TabIndex = 27;
+            // 
+            // TheirBlueT
+            // 
+            this.TheirBlueT.AutoSize = true;
+            this.TheirBlueT.Font = new System.Drawing.Font("Impact", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TheirBlueT.ForeColor = System.Drawing.Color.Lime;
+            this.TheirBlueT.Location = new System.Drawing.Point(185, 143);
+            this.TheirBlueT.Name = "TheirBlueT";
+            this.TheirBlueT.Size = new System.Drawing.Size(0, 20);
+            this.TheirBlueT.TabIndex = 26;
+            // 
+            // OurRedT
+            // 
+            this.OurRedT.AutoSize = true;
+            this.OurRedT.Font = new System.Drawing.Font("Impact", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.OurRedT.ForeColor = System.Drawing.Color.Lime;
+            this.OurRedT.Location = new System.Drawing.Point(185, 107);
+            this.OurRedT.Name = "OurRedT";
+            this.OurRedT.Size = new System.Drawing.Size(0, 20);
+            this.OurRedT.TabIndex = 25;
+            // 
+            // ourBlueT
+            // 
+            this.ourBlueT.AutoSize = true;
+            this.ourBlueT.Font = new System.Drawing.Font("Impact", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ourBlueT.ForeColor = System.Drawing.Color.Lime;
+            this.ourBlueT.Location = new System.Drawing.Point(185, 68);
+            this.ourBlueT.Name = "ourBlueT";
+            this.ourBlueT.Size = new System.Drawing.Size(0, 20);
+            this.ourBlueT.TabIndex = 24;
             // 
             // ServerForm
             // 
@@ -96,6 +234,18 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(284, 368);
+            this.Controls.Add(this.BaronT);
+            this.Controls.Add(this.DrakeT);
+            this.Controls.Add(this.TheirRedT);
+            this.Controls.Add(this.TheirBlueT);
+            this.Controls.Add(this.OurRedT);
+            this.Controls.Add(this.ourBlueT);
+            this.Controls.Add(this.asd);
+            this.Controls.Add(this.darkeabel);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.tbLabel);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.obLabel);
             this.Controls.Add(this.connectionLabel);
             this.Controls.Add(this.connectButton);
             this.Controls.Add(this.IPbox);
@@ -121,6 +271,18 @@
         private System.Windows.Forms.Button connectButton;
         private System.Windows.Forms.Label connectionLabel;
         private System.Windows.Forms.ToolStripMenuItem closeConnToolStripMenuItem;
+        private System.Windows.Forms.Label asd;
+        private System.Windows.Forms.Label darkeabel;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label tbLabel;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label obLabel;
+        private System.Windows.Forms.Label BaronT;
+        private System.Windows.Forms.Label DrakeT;
+        private System.Windows.Forms.Label TheirRedT;
+        private System.Windows.Forms.Label TheirBlueT;
+        private System.Windows.Forms.Label OurRedT;
+        private System.Windows.Forms.Label ourBlueT;
     }
 }
 

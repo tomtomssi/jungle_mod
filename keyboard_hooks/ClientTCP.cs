@@ -10,18 +10,31 @@ namespace keyboard_hooks
 {
     class ClientTCP
     {
+        private string IP;
+        int keyId;
+
         public ClientTCP(string IP)
+        {
+            this.IP = IP;
+        }
+
+        public void setKeyNum(int id)
+        {
+            this.keyId = id;
+        }
+
+        public void sendData(int data)
         {
             try
             {
                 TcpClient tcpclnt = new TcpClient();
 
-                tcpclnt.Connect(IP, 3567);
+                tcpclnt.Connect(this.IP, 3567);
                 // use the ipaddress as in the server program
                 Stream stream = tcpclnt.GetStream();
-                ASCIIEncoding asen = new ASCIIEncoding();
+                
 
-                byte[] sendByte = asen.GetBytes("OK");
+                byte[] sendByte = BitConverter.GetBytes(data);
 
                 stream.Write(sendByte, 0, sendByte.Length);
 
@@ -30,7 +43,7 @@ namespace keyboard_hooks
 
             catch (Exception e)
             {
-                
+
             }
         }
     }
