@@ -45,7 +45,7 @@
             this.TheirRedT = new System.Windows.Forms.Label();
             this.TheirBlueT = new System.Windows.Forms.Label();
             this.OurRedT = new System.Windows.Forms.Label();
-            this.ourBlueT = new System.Windows.Forms.Label();
+            this.OurBlueT = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,7 +70,7 @@
             // closeConnToolStripMenuItem
             // 
             this.closeConnToolStripMenuItem.Name = "closeConnToolStripMenuItem";
-            this.closeConnToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.closeConnToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
             this.closeConnToolStripMenuItem.Text = "Close conn";
             this.closeConnToolStripMenuItem.Click += new System.EventHandler(this.closeConnToolStripMenuItem_Click);
             // 
@@ -218,15 +218,15 @@
             this.OurRedT.Size = new System.Drawing.Size(0, 20);
             this.OurRedT.TabIndex = 25;
             // 
-            // ourBlueT
+            // OurBlueT
             // 
-            this.ourBlueT.AutoSize = true;
-            this.ourBlueT.Font = new System.Drawing.Font("Impact", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ourBlueT.ForeColor = System.Drawing.Color.Lime;
-            this.ourBlueT.Location = new System.Drawing.Point(185, 68);
-            this.ourBlueT.Name = "ourBlueT";
-            this.ourBlueT.Size = new System.Drawing.Size(0, 20);
-            this.ourBlueT.TabIndex = 24;
+            this.OurBlueT.AutoSize = true;
+            this.OurBlueT.Font = new System.Drawing.Font("Impact", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.OurBlueT.ForeColor = System.Drawing.Color.Lime;
+            this.OurBlueT.Location = new System.Drawing.Point(185, 68);
+            this.OurBlueT.Name = "OurBlueT";
+            this.OurBlueT.Size = new System.Drawing.Size(0, 20);
+            this.OurBlueT.TabIndex = 24;
             // 
             // ServerForm
             // 
@@ -239,7 +239,7 @@
             this.Controls.Add(this.TheirRedT);
             this.Controls.Add(this.TheirBlueT);
             this.Controls.Add(this.OurRedT);
-            this.Controls.Add(this.ourBlueT);
+            this.Controls.Add(this.OurBlueT);
             this.Controls.Add(this.asd);
             this.Controls.Add(this.darkeabel);
             this.Controls.Add(this.label5);
@@ -282,7 +282,7 @@
         private System.Windows.Forms.Label TheirRedT;
         private System.Windows.Forms.Label TheirBlueT;
         private System.Windows.Forms.Label OurRedT;
-        private System.Windows.Forms.Label ourBlueT;
+        private System.Windows.Forms.Label OurBlueT;
     }
 }
 

@@ -12,30 +12,19 @@ namespace TCP_Server_kh
 {
     class ServerConnection
     {
-        #region Minutes, seconds and timers
-        private System.Windows.Forms.Timer ob, tb, or, tr, drakeTimer, baronTimer = null;
-        int obLizardMinutes, obLizardSeconds, orLizardMinutes, orLizardSeconds;
-        int tbLizardMinutes, tbLizardSeconds, trLizardMinutes, trLizardSeconds;
-        int drakeMinutes, drakeSeconds;
-        int baronMinutes, baronSeconds;
-
-        #endregion
+        
         private Label connectionLabel;
         Socket s = null;
         TcpListener myList = null;
         Label[] timerLabels;
+        bool isRunning = true;
 
         private delegate void moveLabel(string text);
         private delegate void updateTimerLabel(int keyId, string text);
 
         public ServerConnection(Label connectionLabel, Label[] timerLabels)
         {
-            this.or = new System.Windows.Forms.Timer() { Interval = 1000 };
-            this.ob = new System.Windows.Forms.Timer() { Interval = 1000 };
-            this.tr = new System.Windows.Forms.Timer() { Interval = 1000 };
-            this.tb = new System.Windows.Forms.Timer() { Interval = 1000 };
-            this.drakeTimer = new System.Windows.Forms.Timer() { Interval = 1000 };
-            this.baronTimer = new System.Windows.Forms.Timer() { Interval = 1000 };
+            
             this.connectionLabel = connectionLabel;
             this.timerLabels = timerLabels;
 
@@ -62,25 +51,28 @@ namespace TCP_Server_kh
             /* Start Listeneting at the specified port */
 
 
-            myList.Start();
-
-            if (!myList.Pending())
+            while (isRunning)
             {
+                myList.Start();
 
-            }
+                if (!myList.Pending())
+                {
 
-            else
-            {
-                s = myList.AcceptSocket();
+                }
 
-                byte[] b = new byte[100];
-                int k = s.Receive(b);
-                int keyId = BitConverter.ToInt16(b, 0) - 1;
+                else
+                {
+                    s = myList.AcceptSocket();
 
-                selectTimerLabel(keyId);
-                /* clean up */
-                s.Close();
-                myList.Stop();
+                    byte[] b = new byte[100];
+                    int k = s.Receive(b);
+                    int keyId = BitConverter.ToInt16(b, 0) - 1;
+
+                    selectTimerLabel(keyId);
+                    /* clean up */
+                    s.Close();
+                    myList.Stop();
+                } 
             }
 
         }
@@ -88,6 +80,7 @@ namespace TCP_Server_kh
         //Does nothing except change the label atm
         public void closeConn()
         {
+            isRunning = false;
             updateLabel("Disconnected");
         }
 
@@ -122,51 +115,29 @@ namespace TCP_Server_kh
             switch (keyId)
             {
                 case 0:
-                    ourRed();
+                    ServerForm.ourRed();
+                    break;
+                case 1:
+                    ServerForm.ourBlue();
+                    break;
+                case 2:
+                    ServerForm.theirRed();
+                    break;
+                case 3:
+                    ServerForm.theirBlue();
+                    break;
+                case 4:
+                    ServerForm.drake();
+                    break;
+                case 5:
+                    ServerForm.baron();
                     break;
                 default:
                     break;
             }
         }
 
-        #region Timers
-        private void ourRed()
-        {
-            orLizardMinutes = 5;
-            orLizardSeconds = 0;
-            or.Tick += new EventHandler(OrfiveMinTick);
-            or.Start();
-        }
-        #endregion
-
-        #region onTick Methods
-        void OrfiveMinTick(object sender, EventArgs e)
-        {
-            if (orLizardMinutes == 0 && orLizardSeconds == 0)
-            {
-                or.Stop();
-                or.Tick -= new EventHandler(OrfiveMinTick);
-                return;
-            }
-
-            if (orLizardSeconds == 0 && orLizardMinutes != 0)
-            {
-                --orLizardMinutes;
-                orLizardSeconds = 60;
-            }
-            if (orLizardSeconds != 0 && orLizardMinutes == 0)
-            {
-                --orLizardSeconds;
-                updateTimerDelegate(0, orLizardSeconds.ToString());
-            }
-            else
-            {
-                --orLizardSeconds;
-                updateTimerDelegate(0, orLizardMinutes + ":" + orLizardSeconds);
-            }
-        }
-
-        #endregion
+        
 
     }
 }
