@@ -33,6 +33,7 @@ namespace keyboard_hooks
         int drakeMinutes, drakeSeconds;
         int baronMinutes, baronSeconds;
         string IP = null;
+        private bool isHooked = false;
         #endregion
 
         public Form1()
@@ -174,12 +175,18 @@ namespace keyboard_hooks
 
         private void hook_Click(object sender, EventArgs e)
         {
-            isRunning.Text = "Running...";
-            gHook.hook();
+
+            if (!isHooked)
+            {
+                isRunning.Text = "Running...";
+                gHook.hook();
+                isHooked = true;
+            }
         }
 
         private void unhook_Click(object sender, EventArgs e)
         {
+            isHooked = false;
             clearTimers();
             isRunning.Text = "Stopped...";
             gHook.unhook();
